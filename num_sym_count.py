@@ -12,7 +12,7 @@ import n_scale_of_notation as nson
 # print(res.count('6'))
 
 
-number = 81**15 + 3**22 - 27
+number = 81**17 + 3**24 -45
 number_radix = 9
-
-print(nson.new_radix(number, number_radix).count('8'))
+numerals_to_count = '8'
+print(nson.new_radix(number, number_radix).count(numerals_to_count))
