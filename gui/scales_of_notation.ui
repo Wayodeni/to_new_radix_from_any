@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>289</width>
-    <height>284</height>
+    <width>267</width>
+    <height>309</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Перевод систем счисления</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -26,6 +26,9 @@
       <property name="text">
        <string>Начальное число</string>
       </property>
+      <property name="placeholderText">
+       <string>Начальное число</string>
+      </property>
      </widget>
     </item>
     <item>
@@ -33,35 +36,25 @@
       <property name="text">
        <string>Основание системы счисления</string>
       </property>
+      <property name="placeholderText">
+       <string>Основание системы счисления</string>
+      </property>
      </widget>
     </item>
     <item>
-     <spacer name="horizontalSpacer">
+     <widget class="Line" name="line">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Expanding</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>80</height>
-       </size>
-      </property>
-     </spacer>
+     </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="outputRadix">
       <property name="text">
        <string>Система счисления конечного числа</string>
       </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="outputNum">
-      <property name="text">
-       <string>Конечное число</string>
+      <property name="placeholderText">
+       <string>Система счисления конечного числа</string>
       </property>
      </widget>
     </item>
@@ -69,6 +62,45 @@
      <widget class="QPushButton" name="getResult">
       <property name="text">
        <string>Перевести</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="outputNum">
+      <property name="text">
+       <string>Результат</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="placeholderText">
+       <string>Результат</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPlainTextEdit" name="errorOutput">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 0, 0);</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="centerOnScroll">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>Ошибки, допущенные при вводе.</string>
       </property>
      </widget>
     </item>

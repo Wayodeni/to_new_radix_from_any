@@ -55,48 +55,53 @@ def new_radix_from_any(num, radix, new_radix):
         return '|' * number_10
 
 
-parser = argparse.ArgumentParser(description='This is to_new_radix_from_any help.')
-parser.add_argument('--n',
-                    default=1,
-                    type=str,
-                    help='This argument requires number to translate.')
-parser.add_argument('--r', type=int,
-                    required=True,
-                    help='This argument requires number radix.')
-parser.add_argument('--tr',
-                    default=1,
-                    type=int,
-                    help='This argument requires radix to translate into.')
-args = parser.parse_args()
-n = args.n.upper()
-r = args.r
-tr = args.tr
-alphabet = {
-    10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F', 16: 'G', 17: 'H',
-    18: 'I', 19: 'J', 20: 'K', 21: 'L', 22: 'M', 23: 'N', 24: 'O', 25: 'P',
-    26: 'Q', 27: 'R', 28: 'S', 29: 'T', 30: 'U', 31: 'V', 32: 'W', 33: 'X',
-    34: 'Y', 35: 'Z'
-}
+def main():
+    parser = argparse.ArgumentParser(description='This is to_new_radix_from_any help.')
+    parser.add_argument('--n',
+                        default=1,
+                        type=str,
+                        help='This argument requires number to translate.')
+    parser.add_argument('--r', type=int,
+                        required=True,
+                        help='This argument requires number radix.')
+    parser.add_argument('--tr',
+                        default=1,
+                        type=int,
+                        help='This argument requires radix to translate into.')
+    args = parser.parse_args()
+    n = args.n.upper()
+    r = args.r
+    tr = args.tr
+    alphabet = {
+        10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F', 16: 'G', 17: 'H',
+        18: 'I', 19: 'J', 20: 'K', 21: 'L', 22: 'M', 23: 'N', 24: 'O', 25: 'P',
+        26: 'Q', 27: 'R', 28: 'S', 29: 'T', 30: 'U', 31: 'V', 32: 'W', 33: 'X',
+        34: 'Y', 35: 'Z'
+    }
 
-if n.isalnum() and str(r).isalnum() and str(tr).isalnum():
-    if tr > 36 or r > 36:
-        error_message()
-
-    if not n.isdigit():  # Checking if number exceeds entered radix
-        literals = n
-        for i in literals:
-            if i in '0123456789':
-                literals = literals.replace(i, '')
-        literals = list(''.join(sorted(literals)))
-        max_literal = literals[-1]
-        max_litnum = get_key(alphabet, max_literal)
-        if r > max_litnum:
-            print(new_radix_from_any(n, r, tr))
-        else:
+    if n.isalnum() and str(r).isalnum() and str(tr).isalnum():
+        if tr > 36 or r > 36:
             error_message()
-    else:
-        print(new_radix_from_any(n, r, tr))
 
-else:
-    print('Please delete redundant symbols!')
-    sys.exit()
+        if not n.isdigit():  # Checking if number exceeds entered radix
+            literals = n
+            for i in literals:
+                if i in '0123456789':
+                    literals = literals.replace(i, '')
+            literals = list(''.join(sorted(literals)))
+            max_literal = literals[-1]
+            max_litnum = get_key(alphabet, max_literal)
+            if r > max_litnum:
+                print(new_radix_from_any(n, r, tr))
+            else:
+                error_message()
+        else:
+            print(new_radix_from_any(n, r, tr))
+
+    else:
+        print('Please delete redundant symbols!')
+        sys.exit()
+
+
+if __name__ == '__main__':
+    main()
